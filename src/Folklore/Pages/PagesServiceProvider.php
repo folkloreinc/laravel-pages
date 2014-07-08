@@ -57,9 +57,23 @@ class PagesServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
+		$this->registerPicturable();
+
 		$this->registerSluggable();
 
 		$this->registerPages();
+	}
+
+	/**
+	* Register the sluggable service provider
+	*
+	* @return void
+	*/
+	protected function registerPicturable()
+	{
+
+		$this->app->register('Folklore\EloquentPicturable\PicturableServiceProvider');
+
 	}
 
 	/**

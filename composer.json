@@ -10,6 +10,8 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "4.2.*",
+        "folklore/eloquent-picturable": "0.1.*",
+        "folklore/eloquent-localizable": "0.1.*",
         "cviebrock/eloquent-sluggable": "2.*"
     },
     "autoload": {

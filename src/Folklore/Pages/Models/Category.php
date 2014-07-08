@@ -1,10 +1,10 @@
 <?php namespace Folklore\Pages\Models;
 
-use Folklore\Pages\Models\Traits\Localizable;
+use Folklore\EloquentLocalizable\LocalizableTrait;
 
 class Category extends Model {
 
-	use Localizable;
+	use LocalizableTrait;
 
 	protected $table = 'categories';
 

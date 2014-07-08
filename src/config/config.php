@@ -22,23 +22,8 @@ return array(
 		'fr',
 		'en'
 	),
-
-	/*
-	*
-	* Pictures
-	*
-	*/
-	'pictures_path' => public_path().'/files/photos',
-
-	'pictures_mime_to_extension' => array(
-		'image/jpeg' => 'jpg',
-		'image/jpg' => 'jpg',
-		'image/png' => 'png',
-		'image/x-png' => 'png',
-		'image/gif' => 'gif',
-		'image/x-gif' => 'gif'
-	),
-
+	
+	
 	'classes' => array(
 		'Page' => '\Folklore\Pages\Models\Page'
 	),

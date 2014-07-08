@@ -1,11 +1,11 @@
 <?php namespace Folklore\Pages\Models;
 
-use Folklore\Pages\Models\Traits\Localizable;
-use Folklore\Pages\Models\Traits\Picturable;
+use Folklore\EloquentLocalizable\LocalizableTrait;
+use Folklore\EloquentPicturable\PicturableTrait;
 
 class Page extends Model {
 
-	use Localizable, Picturable;
+	use LocalizableTrait, PicturableTrait;
 
 	protected $table = 'pages';
 
