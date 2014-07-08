@@ -1,10 +1,20 @@
 {
     "name": "folklore/pages",
-    "description": "",
+    "description": "Laravel 4 package to deal with Pages and Blocks in a content management system (CMS)",
+    "keywords": ["laravel","pages","blocks","eloquent","content","cms"],
+    "homepage": "http://github.com/Folkloreatelier/laravel-pages",
+    "license": "MIT",
     "authors": [
         {
             "name": "Folklore",
-            "email": "info@atelierfolklore.ca"
+            "email": "info@atelierfolklore.ca",
+            "homepage": "http://atelierfolklore.ca"
+        },
+        {
+            "name": "David Mongeau-Petitpas",
+            "email": "dmp@atelierfolklore.ca",
+            "homepage": "http://mongo.ca",
+            "role": "Developer"
         }
     ],
     "require": {
