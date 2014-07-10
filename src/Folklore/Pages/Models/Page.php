@@ -78,7 +78,7 @@ class Page extends Model {
 		if(empty($value)) {
 			return new \StdClass();
 		}
-		return !is_string($value) ? @json_decode($value):$value;
+		return is_string($value) ? @json_decode($value):$value;
 	}
 
 	/*
