@@ -11,7 +11,8 @@ class Page extends Model {
 
 	protected $fillable = array(
 		'handle',
-		'type'
+		'type',
+		'properties'
 	);
 
 	protected $softDelete = true;
@@ -61,6 +62,23 @@ class Page extends Model {
 		{
 			$query->where('locale', '=', $locale);
 		}));
+	}
+
+	/*
+	*
+	* Accessors and mutators
+	*
+	*/
+	protected function setPropertiesAttribute($value)
+	{
+		$this->attributes['properties'] = !is_string($value) ? json_encode($value):$value;
+	}
+	protected function getPropertiesAttribute($value)
+	{
+		if(empty($value)) {
+			return new \StdClass();
+		}
+		return !is_string($value) ? @json_decode($value):$value;
 	}
 
 	/*

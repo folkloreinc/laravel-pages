@@ -18,6 +18,7 @@ class CreatePagesPageTable extends Migration {
 			$table->string('handle',50);
 			$table->string('type');
 			$table->unsignedInteger('parent_id');
+			$table->longText('properties');
 			$table->timestamps();
 			$table->softDeletes();
 
