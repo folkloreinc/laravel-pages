@@ -82,21 +82,18 @@ class Pages {
 		}
 
 		$pageType = $this->pageType($page->type);
-		if(!$pageType || !isset($pageType['route'])) return null;
+		if(!$pageType || !isset($pageType['url'])) return null;
 
-		$route = $pageType['route'];
+		$url = $pageType['url'];
 		
-		if(is_object($route) && $route instanceof \Closure)
+		if(is_object($url) && $url instanceof \Closure)
 		{
-			return $route($page,$locale);
-		}
-		else if(is_array($route) && sizeof($route) > 1)
-		{
-			return $this->app['url']->route($route[0],$route[1]);
+			return $url($page,$locale);
 		}
 		else
 		{
-			return $this->app['url']->route($route);
+			$route = (array)$url;
+			return call_user_func_array(array($this->app['url'], 'route'), $route);
 		}
 	}
 
