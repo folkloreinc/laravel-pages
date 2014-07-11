@@ -36,7 +36,7 @@ return array(
 	'page_types' => array(
 		'default' => array(
 			'label' => 'default',
-			'route' => function($page, $locale) {
+			'url' => function($page, $locale) {
 				return $page->locale->slug;
 			}
 		)
