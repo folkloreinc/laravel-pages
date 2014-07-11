@@ -74,23 +74,29 @@ class Pages {
 	* URL
 	*
 	*/
-	public function url($page)
+	public function url($page, $locale = null)
 	{
+		
+		if(!$locale) {
+			$locale = $this->app['config']->get('pages::locale');
+		}
 
 		$pageType = $this->pageType($page->type);
 		if(!$pageType || !isset($pageType['route'])) return null;
 
-		$route = (array) $pageType['route'];
-		if(sizeof($route) > 1) {
-			if(is_object($route[1]) && $route[1] instanceof \Closure) {
-
-				return $this->app['url']->route($route[0],$route[1]($page));
-			} else {
-				return $this->app['url']->route($route[0],$route[1]);
-			}
-
-		} else {
-			return $this->app['url']->route($route[0]);
+		$route = $pageType['route'];
+		
+		if(is_object($route) && $route instanceof \Closure)
+		{
+			return $route($page,$locale);
+		}
+		else if(is_array($route) && sizeof($route) > 1)
+		{
+			return $this->app['url']->route($route[0],$route[1]);
+		}
+		else
+		{
+			return $this->app['url']->route($route);
 		}
 	}
 

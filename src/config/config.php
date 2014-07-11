@@ -36,9 +36,9 @@ return array(
 	'page_types' => array(
 		'default' => array(
 			'label' => 'default',
-			'route' => array('page.'.Config::get('app.locale'), function($page) {
-				return array($page->locale->slug);
-			})
+			'route' => function($page, $locale) {
+				return $page->locale->slug;
+			}
 		)
 	),
 
