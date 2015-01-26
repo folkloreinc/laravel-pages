@@ -12,10 +12,14 @@ class Page extends Model {
 	protected $fillable = array(
 		'handle',
 		'type',
-		'properties'
+		'properties',
+		'published',
+		'publish_at'
 	);
 
 	protected $softDelete = true;
+	
+	protected $dates = ['publish_at', 'deleted_at', 'created_at', 'updated_at'];
 
 	/*
 	 *
@@ -42,6 +46,22 @@ class Page extends Model {
 	 * Scopes
 	 *
 	 */
+	public function scopePublished($query)
+	{
+		return $query->where('published', 1)
+					->where(function($query) {
+						$query->whereNull('publish_at');
+						$query->orWhere('publish_at', '<=', Carbon::now()->toDateTimeString());
+					});
+	}
+	public function scopeNotPublished($query)
+	{
+		return $query->where('published', 0)
+					->orWhere(function($query) {
+						$query->whereNotNull('publish_at');
+						$query->where('publish_at', '>', Carbon::now()->toDateTimeString());
+					});
+	}
 	public function scopeWithParentLocale($query, $locale)
 	{
 		return $query->with(array('parent.locale' => function($query) use ($locale)
