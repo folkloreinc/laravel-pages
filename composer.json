@@ -22,7 +22,7 @@
         "illuminate/support": "~5.0",
         "folklore/eloquent-picturable": "~0.2",
         "folklore/eloquent-localizable": "~0.2",
-        "cviebrock/eloquent-sluggable": ">=3.0.0-alpha"
+        "cviebrock/eloquent-sluggable": "dev-master"
     },
     "autoload": {
         "classmap": [
@@ -32,5 +32,6 @@
             "Folklore\\Pages\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
