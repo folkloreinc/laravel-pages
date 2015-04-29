@@ -6,7 +6,7 @@ class Model extends Eloquent
 {
     public function __construct(array $attributes = array())
     {
-        $this->table = \Config::get('pages::database_prefix').$this->table;
+        $this->table = \Config::get('pages.database_prefix').$this->table;
 
         parent::__construct($attributes);
     }

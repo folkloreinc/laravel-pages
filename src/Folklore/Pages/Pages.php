@@ -241,10 +241,10 @@ class Pages {
 		}
 
 		$config = $this->app['config'];
-		$classes = $config->get('pages::classes');
+		$classes = $config->get('pages.classes');
 
 		$defaultOptions = array(
-			'locale' => $config->get('pages::locale'),
+			'locale' => $config->get('pages.locale'),
 			'className' => $classes['Page']
 		);
 
@@ -294,7 +294,7 @@ class Pages {
 		}
 
 		$defaultOptions = array(
-			'locale' => $this->app['config']->get('pages::locale')
+			'locale' => $this->app['config']->get('pages.locale')
 		);
 
 		$options = array_merge($defaultOptions,$options);

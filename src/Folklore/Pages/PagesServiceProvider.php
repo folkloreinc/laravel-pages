@@ -18,7 +18,22 @@ class PagesServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('folklore/pages');
+		
+		// Config file path
+		$configFile = __DIR__ . '/../../config/config.php';
+		$migrationsPath = __DIR__ . '/../../migrations/';
+
+		// Merge files
+		$this->mergeConfigFrom($configFile, 'pages');
+
+		// Publish
+		$this->publishes([
+			$configFile => config_path('pages.php')
+		], 'config');
+
+		$this->publishes([
+			$migrationsPath => database_path('migrations')
+		], 'migrations');
 	}
 
 	/**
@@ -73,21 +88,21 @@ class PagesServiceProvider extends ServiceProvider {
 
 			$config = $app['config'];
 
-			$pageTypes = $config->get('pages::page_types');
+			$pageTypes = $config->get('pages.page_types');
 			if($pageTypes && sizeof($pageTypes)) {
 				foreach($pageTypes as $name => $opts) {
 					$pages->addPageType($name,$opts);
 				}
 			}
 
-			$blockTypes = $config->get('pages::block_types');
+			$blockTypes = $config->get('pages.block_types');
 			if($blockTypes && sizeof($blockTypes)) {
 				foreach($blockTypes as $name => $opts) {
 					$pages->addBlockType($name,$opts);
 				}
 			}
 
-			$blockAreas = $config->get('pages::block_areas');
+			$blockAreas = $config->get('pages.block_areas');
 			if($blockAreas && sizeof($blockAreas)) {
 				foreach($blockAreas as $name => $opts) {
 					$pages->addBlockArea($name,$opts);
