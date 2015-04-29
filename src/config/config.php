@@ -10,18 +10,6 @@ return array(
 	*
 	*/
 	'database_prefix' => '',
-
-	/*
-	*
-	* Locale
-	*
-	*/
-	'locale' => 'default',
-
-	'locale_available' => array(
-		'fr',
-		'en'
-	),
 	
 	
 	'classes' => array(
