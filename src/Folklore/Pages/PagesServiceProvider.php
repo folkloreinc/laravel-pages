@@ -19,34 +19,6 @@ class PagesServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('folklore/pages');
-
-		$this->setLocale();
-	}
-
-	/**
-	 * Set locale to the default if specified
-	 *
-	 * @return void
-	 */
-	public function setLocale()
-	{
-		$config = $this->app['config'];
-
-	    if($config->get('pages::locale') === 'default')
-	    {
-	    	$applicationLocale = $config->get('app.locale');
-	    	$availableLocale = $config->get('pages::locale_available');
-	    	if(in_array($applicationLocale,$availableLocale))
-	    	{
-	    		$config->set('pages::locale',$applicationLocale);
-	    	}
-	    	else if(sizeof($availableLocale))
-	    	{
-	    		$config->set('pages::locale',$availableLocale[0]);
-	    	}
-
-	    }
-
 	}
 
 	/**

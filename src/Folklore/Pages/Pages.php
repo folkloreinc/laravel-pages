@@ -78,7 +78,7 @@ class Pages {
 	{
 		
 		if(!$locale) {
-			$locale = $this->app['config']->get('pages::locale');
+			$locale = $this->app['config']->get('app.locale');
 		}
 
 		$pageType = $this->pageType($page->type);
