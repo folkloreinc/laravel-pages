@@ -3,9 +3,12 @@
 use Folklore\EloquentLocalizable\LocalizableTrait;
 use Folklore\EloquentPicturable\PicturableTrait;
 
+use Cviebrock\EloquentTaggable\Taggable;
+use Cviebrock\EloquentTaggable\TaggableImpl;
+
 class Block extends Model {
 
-	use LocalizableTrait, PicturableTrait;
+	use LocalizableTrait, PicturableTrait, TaggableImpl;
 
 	protected $table = 'blocks';
 

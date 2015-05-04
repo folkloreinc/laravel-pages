@@ -22,7 +22,8 @@
         "illuminate/support": "~5.0",
         "folklore/eloquent-picturable": "~0.2",
         "folklore/eloquent-localizable": "~0.2",
-        "cviebrock/eloquent-sluggable": "dev-master"
+        "cviebrock/eloquent-sluggable": "dev-master",
+        "cviebrock/eloquent-taggable": "dev-master"
     },
     "autoload": {
         "classmap": [

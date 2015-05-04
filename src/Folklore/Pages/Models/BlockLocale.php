@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Str;
 
-class BlockLocale extends Model {
+use Cviebrock\EloquentTaggable\Taggable;
+use Cviebrock\EloquentTaggable\TaggableImpl;
+
+class BlockLocale extends Model implements Taggable {
+	
+	use TaggableImpl;
 
 	protected $table = 'blocks_locale';
 

@@ -4,9 +4,12 @@ use Illuminate\Support\Str;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class PageLocale extends Model implements SluggableInterface {
+use Cviebrock\EloquentTaggable\Taggable;
+use Cviebrock\EloquentTaggable\TaggableImpl;
 
-	use SluggableTrait;
+class PageLocale extends Model implements SluggableInterface, Taggable {
+
+	use SluggableTrait, TaggableImpl;
 
 	protected $table = 'pages_locale';
 
